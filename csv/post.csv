@@ -1,0 +1,9 @@
+HEADER [ID,TITLE,CONTENT, PUBLISHED, BLOG_ID, USER_ID]
+1,How To Parse CSV-files,I am not sure but I will investigate,2023-01-02,1,1
+2,How To Install EFCore,This is something I have to look into,2022-05-06,1,1
+3,How To Uninstall A Virus,One Simply Does Not,2021-04-01,1,1
+4,How To Boil Water,Heat H2O until it reaches 212F - do not touch,1994-08-12,2,2
+5,How To Decrease Happiness,Pursue it,2013-12-15,3,3
+6,How To Live Longer,Buy things,2004-05-05,3,3
+7,How To Elevate Motivation,Read miscredited quotes,2001-09-11,3,3
+8,How To Make Food Out Of Air,I refuse to spoil the future,2037-02-13,2,2
