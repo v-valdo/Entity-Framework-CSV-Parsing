@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 
 public class BlogContext : DbContext
-
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
@@ -18,7 +17,6 @@ public class BlogContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     => options.UseSqlite($"Data Source={DbPath}");
-
 }
 
 public class Post
@@ -28,8 +26,8 @@ public class Post
     public string Content { get; set; }
     public DateTime Published_On { get; set; }
 
-    public int BlogId { get; set; }
     public Blog Blog { get; set; }
+    public int BlogId { get; set; }
 
     public User User { get; set; }
     public int UserId { get; set; }
