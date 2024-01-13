@@ -25,27 +25,15 @@ public class CsvFile
             switch (result)
             {
                 case Entity.user:
-                    if (Exists(UserPath))
-                    {
-                        Console.WriteLine("user.csv exists");
-                    }
-                    else { Console.WriteLine("user file doesnt exist"); }
+
                     break;
 
                 case Entity.post:
-                    if (Exists(PostPath))
-                    {
-                        Console.WriteLine("post.csv exists");
-                    }
-                    else { Console.WriteLine("post file doesnt exist"); }
+
                     break;
 
                 case Entity.blog:
-                    if (Exists(BlogPath))
-                    {
-                        Console.WriteLine("blog.csv exists");
-                    }
-                    else { Console.WriteLine("blog file doesnt exist"); }
+
                     break;
                 default:
                     Console.WriteLine($"Failed to parse CSV file of type {e}");
@@ -60,6 +48,18 @@ public class CsvFile
             return false;
         }
         else { return true; }
+    }
+
+    public string Path(Enum entity)
+    {
+        switch (entity)
+        {
+            case Entity.user: return UserPath;
+            case Entity.post: return PostPath;
+            case Entity.blog: return BlogPath;
+            default:
+                return "NoPath";
+        }
     }
 }
 
