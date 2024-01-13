@@ -20,4 +20,7 @@ string PostPath = "../../../csv/user.csv";
 // 
 
 new CsvFile().Load("user");
+new CsvFile().Load("post");
+new CsvFile().Load("blog");
+
 

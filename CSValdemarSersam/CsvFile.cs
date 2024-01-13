@@ -10,8 +10,8 @@ namespace CSValdemarSersam;
 public class CsvFile
 {
     private string UserPath = "../../../csv/user.csv";
-    private string BlogPath = "../../csv/user.csv";
-    private string PostPath = "../../../csv/user.csv";
+    private string BlogPath = "../../../csv/blog.csv";
+    private string PostPath = "../../../csv/post.csv";
 
     public CsvFile()
     {
@@ -29,12 +29,23 @@ public class CsvFile
                     {
                         Console.WriteLine("user.csv exists");
                     }
-                    else { Console.WriteLine("nope"); }
+                    else { Console.WriteLine("user file doesnt exist"); }
                     break;
-                case Entity.post:
 
+                case Entity.post:
+                    if (Exists(PostPath))
+                    {
+                        Console.WriteLine("post.csv exists");
+                    }
+                    else { Console.WriteLine("post file doesnt exist"); }
                     break;
+
                 case Entity.blog:
+                    if (Exists(BlogPath))
+                    {
+                        Console.WriteLine("blog.csv exists");
+                    }
+                    else { Console.WriteLine("blog file doesnt exist"); }
                     break;
                 default:
                     Console.WriteLine($"Failed to parse CSV file of type {e}");
