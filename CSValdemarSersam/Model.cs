@@ -12,7 +12,7 @@ public class BlogContext : DbContext
 
     public BlogContext()
     {
-        DbPath = $"{Environment.CurrentDirectory}valdemarsersam.db";
+        DbPath = Path.Combine(Environment.CurrentDirectory, "valdemarsersam.db");
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)

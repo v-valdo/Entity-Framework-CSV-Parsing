@@ -18,37 +18,26 @@ public class CsvFile
 
     }
 
-    public void Load(string e)
+    public string[] Load(string e)
     {
-        if (Enum.TryParse(e, out Entity result))
+        if (Enum.TryParse(e, out Entity type))
         {
-            switch (result)
+            switch (type)
             {
                 case Entity.user:
-
-                    break;
-
+                    return File.ReadAllLines(UserPath).Skip(1).ToArray();
                 case Entity.post:
-
-                    break;
-
+                    return File.ReadAllLines(PostPath).Skip(1).ToArray();
                 case Entity.blog:
-
-                    break;
+                    return File.ReadAllLines(BlogPath).Skip(1).ToArray();
                 default:
-                    Console.WriteLine($"Failed to parse CSV file of type {e}");
+                    Console.WriteLine($"Failed to parse CSV file for {e}s");
                     break;
             }
         }
+        return null;
     }
-    public bool Exists(string path)
-    {
-        if (!File.Exists(path))
-        {
-            return false;
-        }
-        else { return true; }
-    }
+    public bool Exists(string path) => File.Exists(path);
 
     public string Path(Enum entity)
     {
@@ -61,11 +50,4 @@ public class CsvFile
                 return "NoPath";
         }
     }
-}
-
-public enum Entity
-{
-    user = 1,
-    post,
-    blog
 }
