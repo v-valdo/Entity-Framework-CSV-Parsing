@@ -1,46 +1,23 @@
 ﻿using CSValdemarSersam;
+// CsvFile file = new();
 
-
-using var db = new BlogContext();
-CsvFile file = new();
-
+// lambda??
 // List<string> postfields = posts.Select(line => line.Split(",").ToList()).ToList();
 
-// --------------- UPLOAD POSTS --------------------
+DataManager d = new();
 
-if (file.Exists(file.Path(Entity.user)))
-{
-    string[] posts = file.Load("post");
+var db = new BlogContext();
 
-    Console.WriteLine("uploading posts");
+// db.Database.ExecuteSqlRaw("delete from users");
 
-    int filesUploaded = 1;
+d.Upload(Entity.user);
 
-    foreach (string post in posts)
-    {
-        Console.WriteLine(filesUploaded);
 
-        Thread.Sleep(150);
+//Thread.Sleep(100);
+//d.Upload(Entity.blog);
 
-        filesUploaded++;
+//Thread.Sleep(100);
+//d.Upload(Entity.post);
 
-        string[] parts = post.Split(",");
-
-        Post p = new Post
-        {
-            Id = Convert.ToInt32(parts[0]),
-            Title = parts[1],
-            Content = parts[2],
-            Published_On = DateTime.TryParse(parts[3], out DateTime n) ? n : DateTime.Now,
-            BlogId = Convert.ToInt32(parts[4]),
-            UserId = Convert.ToInt32(parts[5])
-        };
-
-        db.Posts.Add(p);
-    }
-
-    db.SaveChanges();
-
-    Console.WriteLine($"successfully uploaded {filesUploaded - 1} posts");
-}
+//Thread.Sleep(100);
 

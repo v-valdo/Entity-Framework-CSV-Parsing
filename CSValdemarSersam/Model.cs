@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 
 public class BlogContext : DbContext
 {
@@ -12,7 +10,8 @@ public class BlogContext : DbContext
 
     public BlogContext()
     {
-        DbPath = Path.Combine(Environment.CurrentDirectory, "valdemarsersam.db");
+        DbPath = ("../../../valdemarsersam.db");
+        Database.EnsureCreated();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)

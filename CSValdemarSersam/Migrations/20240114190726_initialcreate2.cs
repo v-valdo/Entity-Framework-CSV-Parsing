@@ -5,7 +5,7 @@
 namespace CSValdemarSersam.Migrations
 {
     /// <inheritdoc />
-    public partial class initialcreate3 : Migration
+    public partial class initialcreate2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

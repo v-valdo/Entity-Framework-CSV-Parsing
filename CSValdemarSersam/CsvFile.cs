@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSValdemarSersam;
+﻿namespace CSValdemarSersam;
 
 public class CsvFile
 {
@@ -38,6 +31,27 @@ public class CsvFile
         return null;
     }
     public bool Exists(string path) => File.Exists(path);
+
+    public static void Filter(string[] splitCsv)
+    {
+        List<string> uniqueValues = new List<string>();
+
+        for (int i = 0; i < splitCsv.Length; i++)
+        {
+            string[] values = splitCsv[i].Split(',');
+
+            if (!uniqueValues.Contains(values[0]))
+            {
+                uniqueValues.Add(values[0]);
+
+                for (int j = 1; j < values.Length; j++)
+                {
+                    Console.WriteLine(values[j]);
+                }
+            }
+        }
+        // return values.ToArray();
+    }
 
     public string Path(Enum entity)
     {
