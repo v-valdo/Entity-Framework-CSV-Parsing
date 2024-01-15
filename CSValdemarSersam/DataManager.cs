@@ -19,17 +19,14 @@ public class DataManager
 
             Console.WriteLine($"uploading {e}");
 
-            List<string> parts = new();
+            string[] columnData = file.Filter(all);
 
-            foreach (var line in all)
+            foreach (var line in columnData)
             {
-                string[] split = line.Split(",");
-                parts.AddRange(split);
+                Console.WriteLine(line);
             }
 
             // string[] filteredTable = CsvFile.Filter(parts.ToArray());
-
-            CsvFile.Filter(parts.ToArray());
 
             // Add(e, filteredTable);
 

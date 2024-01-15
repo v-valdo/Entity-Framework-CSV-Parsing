@@ -1,4 +1,6 @@
-﻿namespace CSValdemarSersam;
+﻿using System.Xml;
+
+namespace CSValdemarSersam;
 
 public class CsvFile
 {
@@ -32,25 +34,23 @@ public class CsvFile
     }
     public bool Exists(string path) => File.Exists(path);
 
-    public static void Filter(string[] splitCsv)
+    public string[] Filter(string[] rawFile)
     {
-        List<string> uniqueValues = new List<string>();
+        List<string> uniques = new List<string>();
 
-        for (int i = 0; i < splitCsv.Length; i++)
+        for (int i = 0; i < rawFile.Length; i++)
         {
-            string[] values = splitCsv[i].Split(',');
+            string[] values = rawFile[i].Split(',');
 
-            if (!uniqueValues.Contains(values[0]))
+            if (!uniques.Contains(values[0]))
             {
-                uniqueValues.Add(values[0]);
-
-                for (int j = 1; j < values.Length; j++)
-                {
-                    Console.WriteLine(values[j]);
-                }
+                uniques.Add(values[0]);
+                uniques.Add(values[1]);
+                uniques.Add(values[2]);
             }
         }
-        // return values.ToArray();
+
+        return uniques.ToArray();
     }
 
     public string Path(Enum entity)
