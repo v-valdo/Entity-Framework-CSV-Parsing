@@ -34,23 +34,36 @@ public class CsvFile
     }
     public bool Exists(string path) => File.Exists(path);
 
-    public string[] Filter(string[] rawFile)
+    public string[] Filter(Entity e, string[] rawFile)
     {
         List<string> uniques = new List<string>();
 
-        for (int i = 0; i < rawFile.Length; i++)
+        if (e == Entity.user || e == Entity.blog)
         {
-            string[] values = rawFile[i].Split(',');
-
-            if (!uniques.Contains(values[0]))
+            for (int i = 0; i < rawFile.Length; i++)
             {
-                uniques.Add(values[0]);
-                uniques.Add(values[1]);
-                uniques.Add(values[2]);
-            }
-        }
+                string[] splitFile = rawFile[i].Split(',');
 
-        return uniques.ToArray();
+                if (!uniques.Contains(splitFile[0]))
+                {
+                    uniques.Add(splitFile[0]);
+                    uniques.Add(splitFile[1]);
+                    uniques.Add(splitFile[2]);
+                }
+            }
+            return uniques.ToArray();
+        }
+        else
+        {
+            List<string> splitCsv = new();
+
+            for (int i = 0; i < rawFile.Length; i++)
+            {
+                string[] splitFile = rawFile[i].Split(",");
+                splitCsv.AddRange(splitFile);
+            }
+            return splitCsv.ToArray();
+        }
     }
 
     public string Path(Enum entity)
