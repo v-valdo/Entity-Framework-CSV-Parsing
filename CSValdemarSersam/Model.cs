@@ -26,7 +26,6 @@ public class User
     public string? Password { get; set; }
 
     public List<Post> Posts { get; } = new();
-
 }
 
 public class Blog
@@ -36,7 +35,6 @@ public class Blog
     public string? Name { get; set; }
 
     public List<Post> Posts { get; } = new();
-
 }
 public class Post
 {
@@ -50,7 +48,6 @@ public class Post
 
     public User? User { get; set; }
     public int UserId { get; set; }
-
 }
 
 

@@ -17,20 +17,11 @@ public class DataManager
         {
             string[] all = file.Load($"{e}");
 
-            Console.WriteLine($"uploading {e}s");
-
             string[] columnData = file.Filter(e, all);
-
-            foreach (var line in columnData)
-            {
-                Console.WriteLine(line);
-            }
-
-            // string[] filteredTable = CsvFile.Filter(parts.ToArray());
 
             Add(e, columnData);
 
-            Console.WriteLine($"successfully uploaded files of type {e}");
+            Console.Clear();
         }
     }
 
