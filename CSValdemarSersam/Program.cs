@@ -23,7 +23,6 @@ void ShowTree(BlogContext db)
     var blogs1 = db.Blogs.Include(b => b.Posts).ToList();
     var users1 = db.Users.Include(u => u.Posts).ToList();
 
-
     Console.Clear();
     foreach (var user in db.Users)
     {
@@ -34,7 +33,6 @@ void ShowTree(BlogContext db)
             Console.WriteLine($"    blog: {post.Blog.Name}");
         }
         Console.WriteLine();
-
     }
 }
 
