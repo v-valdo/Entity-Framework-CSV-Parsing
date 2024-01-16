@@ -20,7 +20,6 @@ public class DataManager
             string[] columnData = file.Filter(e, all);
 
             Add(e, columnData);
-
         }
     }
 

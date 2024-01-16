@@ -4,7 +4,6 @@ namespace CSValdemarSersam;
 
 public class CsvFile
 {
-    // o
     private string UserPath = "csv/user.csv";
     private string BlogPath = "csv/blog.csv";
     private string PostPath = "csv/post.csv";
@@ -31,7 +30,7 @@ public class CsvFile
                     break;
             }
         }
-        return null;
+        return ["reset database pls"];
     }
     public bool Exists(string path) => File.Exists(path);
 
