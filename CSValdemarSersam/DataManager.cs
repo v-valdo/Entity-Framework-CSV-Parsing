@@ -3,12 +3,12 @@
 public class DataManager
 {
     private CsvFile file;
-    public BlogContext db;
+    private BlogContext Db;
 
-    public DataManager()
+    public DataManager(BlogContext db)
     {
         file = new CsvFile();
-        db = new BlogContext();
+        Db = db;
     }
 
     public void Upload(Entity e)
@@ -44,32 +44,33 @@ public class DataManager
                     {
                         User u = new User
                         {
-                            Id = Convert.ToInt32(data[i]),
+                            UserId = Convert.ToInt32(data[i]),
                             Username = data[i + 1],
                             Password = data[i + 2],
                         };
-                        db.Users.Add(u);
+                        Db.Users.Add(u);
                     }
-                    db.SaveChanges();
+                    Db.SaveChanges();
                     return "Users successfully added";
                 }
+
             case Entity.post:
                 {
                     for (int i = 0; i < data.Length; i += 6)
                     {
                         Post p = new Post
                         {
-                            Id = Convert.ToInt32(data[i]),
+                            PostId = Convert.ToInt32(data[i]),
                             Title = data[i + 1],
                             Content = data[i + 2],
                             Published_On = DateTime.TryParse(data[i + 3], out DateTime n) ? n : DateTime.Now,
                             BlogId = Convert.ToInt32(data[i + 4]),
                             UserId = Convert.ToInt32(data[i + 5])
                         };
-                        db.Posts.Add(p);
+                        Db.Posts.Add(p);
                     }
+                    Db.SaveChanges();
                 }
-                db.SaveChanges();
                 return "Posts successfully added";
 
             case Entity.blog:
@@ -78,14 +79,14 @@ public class DataManager
                     {
                         Blog b = new Blog
                         {
-                            Id = Convert.ToInt32(data[i]),
+                            BlogId = Convert.ToInt32(data[i]),
                             Url = data[i + 1],
                             Name = data[i + 2],
                         };
-                        db.Blogs.Add(b);
+                        Db.Blogs.Add(b);
                     }
+                    Db.SaveChanges();
                 }
-                db.SaveChanges();
                 return "Blogs successfully added";
         }
         return "Failed";
