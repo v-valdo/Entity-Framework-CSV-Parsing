@@ -21,7 +21,6 @@ public class DataManager
 
             Add(e, columnData);
 
-            Console.Clear();
         }
     }
 

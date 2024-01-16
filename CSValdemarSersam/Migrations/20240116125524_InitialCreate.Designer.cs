@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CSValdemarSersam.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20240116104909_newproperties")]
-    partial class newproperties
+    [Migration("20240116125524_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

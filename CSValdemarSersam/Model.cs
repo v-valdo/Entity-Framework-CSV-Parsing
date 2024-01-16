@@ -12,7 +12,7 @@ public class BlogContext : DbContext
 
     public BlogContext()
     {
-        DbPath = ("../../../valdemarsersam.db");
+        DbPath = ("valdemarsersam2.db");
         Database.EnsureCreated();
     }
 

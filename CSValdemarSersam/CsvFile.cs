@@ -4,9 +4,10 @@ namespace CSValdemarSersam;
 
 public class CsvFile
 {
-    private string UserPath = "../../../csv/user.csv";
-    private string BlogPath = "../../../csv/blog.csv";
-    private string PostPath = "../../../csv/post.csv";
+    // o
+    private string UserPath = "csv/user.csv";
+    private string BlogPath = "csv/blog.csv";
+    private string PostPath = "csv/post.csv";
 
     public CsvFile()
     {

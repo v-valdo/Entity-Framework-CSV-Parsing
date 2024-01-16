@@ -1,5 +1,4 @@
 ﻿using CSValdemarSersam;
-using CSValdemarSersam.Migrations;
 using Microsoft.EntityFrameworkCore;
 
 using var db = new BlogContext();
@@ -8,7 +7,7 @@ DataManager data = new(db);
 
 //// Clear & Upload
 
-// DeleteTables();
+//DeleteTables();
 //data.Upload(Entity.user);
 //data.Upload(Entity.blog);
 //data.Upload(Entity.post);
@@ -23,7 +22,6 @@ void ShowTree(BlogContext db)
     var blogs1 = db.Blogs.Include(b => b.Posts).ToList();
     var users1 = db.Users.Include(u => u.Posts).ToList();
 
-    Console.Clear();
     foreach (var user in db.Users)
     {
         Console.WriteLine($"user: {user.Username}");
@@ -43,5 +41,4 @@ void DeleteTables()
     db.Posts.RemoveRange(db.Posts.ToList());
     db.SaveChanges();
     Console.WriteLine("tables cleared");
-    Console.ReadKey();
 }
